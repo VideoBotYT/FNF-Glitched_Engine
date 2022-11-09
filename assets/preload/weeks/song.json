@@ -1,0 +1,41 @@
+{
+	"storyName": "corrupted week",
+	"difficulties": "Easy, Normal, Hard, giant",
+	"hideFreeplay": false,
+	"weekBackground": "stage",
+	"weekBefore": "tutorial",
+	"freeplayColor": [
+		146,
+		113,
+		253
+	],
+	"startUnlocked": true,
+	"hideStoryMode": false,
+	"songs": [
+		[
+			"robosong",
+			"mordecai",
+			[
+				86,
+				73,
+				255
+			]
+		],
+		[
+			"overworked",
+			"mordecai",
+			[
+				146,
+				153,
+				95
+			]
+		]
+	],
+	"weekCharacters": [
+		"Mordecai",
+		"bf",
+		"gf"
+	],
+	"hiddenUntilUnlocked": false,
+	"weekName": "song"
+}
