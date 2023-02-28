@@ -21,7 +21,7 @@ The best instructions are on the Kade Engine build intructions.
 https://github.com/KadeDev/Kade-Engine/blob/stable/docs/building.md
 If you are done with the Kade Engine build then you can begin with these build instructions.
 
-## Wike page:
+## Wiki page:
 link to wiki: https://github.com/ShadowMario/FNF-PsychEngine/wiki
 
 ## Credits:
