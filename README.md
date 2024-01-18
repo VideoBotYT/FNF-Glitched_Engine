@@ -1,37 +1,56 @@
-# Friday Night Funkin' - Psych Engine
-Engine originally used on [Mind Games Mod](https://gamebanana.com/mods/301107), intended to be a fix for the vanilla version's many issues while keeping the casual play aspect of it. Also aiming to be an easier alternative to newbie coders.
+# FNF-Glitched Engine
+To build the Glitched-Engine you need all PsychEngine libraries and flxanimate.
+To install flxanimate run this in your cmd/powershell: `haxelib install flxanimate`
 
 ## Installation:
-You must have [the most up-to-date version of Haxe](https://haxe.org/download/), seriously, stop using 4.1.5, it misses some stuff.
+You must have [Haxe](https://haxe.org/download/), installed in order to move on to these next steps
 
-Follow a Friday Night Funkin' source code compilation tutorial, after this you will need to install LuaJIT.
+------------------
 
-To install LuaJIT do this: `haxelib git linc_luajit https://github.com/nebulazorua/linc_luajit` on a Command prompt/PowerShell
+Go into your `setup` folder located in the root directory of the source code, and execute the respective script for your operating system
 
-...Or if you don't want your mod to be able to run .lua scripts, delete the "LUA_ALLOWED" line on Project.xml
+`setup-unix.sh` was designed for Linux and Mac, `setup-windows.bat` was designed for (duh) Windows
 
+for Windows users, double click the `setup-windows.bat` file, and wait until the process of installing the libraries is finished
 
-If you get an error about StatePointer when using Lua, run `haxelib remove linc_luajit` into Command Prompt/PowerShell, then re-install linc_luajit.
+------------------
 
-If you want video support on your mod, simply do `haxelib install hxCodec` on a Command prompt/PowerShell
+for Linux and Mac users, often double clicking on `setup-unix.sh` is the solution, but if not, open up a terminal on the script's folder location, and execute the following command:
 
-otherwise, you can delete the "VIDEOS_ALLOWED" Line on Project.xml
-## Best intructions:
-The best instructions are on the Kade Engine build intructions.
-https://github.com/KadeDev/Kade-Engine/blob/stable/docs/building.md
-If you are done with the Kade Engine build then you can begin with these build instructions.
+`sh setup-unix.sh`
 
-## Wiki page:
-link to wiki: https://github.com/ShadowMario/FNF-PsychEngine/wiki
+------------------
 
-## Credits:
+once finished, you should be ready to compile, you can open a terminal in the source code folder, and then type `lime test <target>`
+
+with `<target>` being either `windows`, `mac` or `linux`
+
+If the compiler gives an error saying that hxCodec cannot be found read this issue to fix it: ShadowMario/FNF-PsychEngine#12770
+
+## Customization:
+
+if you wish to disable things like *Lua Scripts* or *Video Cutscenes*, you can read over to `Project.xml`
+
+inside `Project.xml`, you will find several variables to customize Psych Engine to your liking
+
+to start you off, disabling Videos should be simple, simply Delete the line `"VIDEOS_ALLOWED"` or comment it out by wrapping the line in XML-like comments, like this `<!-- YOUR_LINE_HERE -->`
+
+same goes for *Lua Scripts*, comment out or delete the line with `LUA_ALLOWED`, this and other customization options are all available within the `Project.xml` file
+
+## Glitched-Engine Credits:
+* VideoBot - Founder - Creator of Glitched-Engine
+* TechDevOfficial - Programmer of Glitched-Engine
+* Miawma0 - Artist of Glitched-Engine
+* andrew14boi - Musician - Song Maker of Glitched-Engine
+
+## Psych Engine Credits:
 * Shadow Mario - Programmer
 * RiverOaken - Artist
 * Yoshubs - Assistant Programmer
 
-### Special Thanks
+### Psych Engine Special Thanks
 * bbpanzu - Ex-Programmer
-* shubs - New Input System
+* Yoshubs - New Input System
 * SqirraRNG - Crash Handler and Base code for Chart Editor's Waveform
 * KadeDev - Fixed some cool stuff on Chart Editor and other PRs
 * iFlicky - Composer of Psync and Tea Time, also made the Dialogue Sounds
@@ -57,6 +76,7 @@ _____________________________________
 ### Week 1:
   * New Dad Left sing sprite
   * Unused stage lights are now used
+  * Dad Battle has a spotlight effect for the breakdown
 ### Week 2:
   * Both BF and Skid & Pump does "Hey!" animations
   * Thunders does a quick light flash and zooms the camera in slightly
@@ -79,9 +99,12 @@ _____________________________________
 * You can now chart "Event" notes, which are bookmarks that trigger specific actions that usually were hardcoded on the vanilla version of the game.
 * Your song's BPM can now have decimal values
 * You can manually adjust a Note's strum time if you're really going for milisecond precision
-* You can change a note's type on the Editor, it comes with two example types:
+* You can change a note's type on the Editor, it comes with five example types:
   * Alt Animation: Forces an alt animation to play, useful for songs like Ugh/Stress
   * Hey: Forces a "Hey" animation instead of the base Sing animation, if Boyfriend hits this note, Girlfriend will do a "Hey!" too.
+  * Hurt Notes: If Boyfriend hits this note, he plays a miss animation and loses some health.
+  * GF Sing: Rather than the character hitting the note and singing, Girlfriend sings instead.
+  * No Animation: Character just hits the note, no animation plays.
 
 ## Multiple editors to assist you in making your own Mod
 ![Screenshot_3](https://user-images.githubusercontent.com/44785097/144629914-1fe55999-2f18-4cc1-bc70-afe616d74ae5.png)
@@ -109,3 +132,4 @@ _____________________________________
 * Some stuff based on Week 7's changes has been put in (Background colors on Freeplay, Note splashes)
 * You can reset your Score on Freeplay/Story Mode by pressing Reset button.
 * You can listen to a song or adjust Scroll Speed/Damage taken/etc. on Freeplay by pressing Space.
+* You can enable "Combo Stacking" in Gameplay Options. This causes the combo sprites to just be one sprite with an animation rather than sprites spawning each note hit.
