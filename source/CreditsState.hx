@@ -81,6 +81,16 @@ class CreditsState extends MusicBeatState
 		#end
 
 		var pisspoop:Array<Array<String>> = [ //Name - Icon name - Description - Link - BG Color
+			['FNF Glitched-Engine'],
+			['VideoBot',		'videobot',		'Main Founder-Creator of Glitched-Engine',								'https://www.youtube.com/channel/UC7Q9YHqBdroWwyPfSp8_yhA',		'05f7ef'],
+			['TechDev',		'shadowmario',		'Main Programmer of Glitched-Engine',								'discord.gg/HfqGXvznBe',		'05f7ef'],
+			['Miawmao',		'Miawmao',			'Artist of Glitched Engine',				'https://www.youtube.com/@Miawmaobruh',		'05f7ef'],
+			[''],
+			['Music'],
+			['Pibby corrupted', 'Pibby', 'Title music I copied the file I am sorry Pibby Corrupted team', 'https://gamebanana.com/mods/344757', 'F000FF'],
+			['Cartoon Corruption', 'CCN', 'Main menu music I copied the file I am sorry Cartoon Corruption team', 'https://gamebanana.com/wips/79419', 'FF00FF'],
+			['TechDev', 'shadowmario', 'Made the other music that you hear in story mode and freeplay menu', 'discord.gg/HfqGXvznBe', '00FFFF'],
+			[''],
 			['Psych Engine Team'],
 			['Shadow Mario',		'shadowmario',		'Main Programmer of Psych Engine',								'https://twitter.com/Shadow_Mario_',	'444444'],
 			['RiverOaken',			'river',			'Main Artist/Animator of Psych Engine',							'https://twitter.com/RiverOaken',		'B42F71'],

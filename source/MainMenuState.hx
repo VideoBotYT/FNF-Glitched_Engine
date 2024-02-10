@@ -27,6 +27,7 @@ class MainMenuState extends MusicBeatState
 {
 	public static var psychEngineVersion:String = '0.6.2'; //This is also used for Discord RPC
 	public static var curSelected:Int = 0;
+	public static var firstStart:Bool = true;
 
 	var menuItems:FlxTypedGroup<FlxSprite>;
 	private var camGame:FlxCamera;
@@ -36,9 +37,9 @@ class MainMenuState extends MusicBeatState
 		'story_mode',
 		'freeplay',
 		#if MODS_ALLOWED 'mods', #end
-		#if ACHIEVEMENTS_ALLOWED 'awards', #end
+		//#if ACHIEVEMENTS_ALLOWED 'awards', #end
 		'credits',
-		#if !switch 'donate', #end
+		//#if !switch 'donate', #end
 		'options'
 	];
 
@@ -106,7 +107,7 @@ class MainMenuState extends MusicBeatState
 		/*if(optionShit.length > 6) {
 			scale = 6 / optionShit.length;
 		}*/
-
+		FlxG.sound.playMusic(Paths.music('mainMenu'), 0);
 		for (i in 0...optionShit.length)
 		{
 			var offset:Float = 108 - (Math.max(optionShit.length, 4) - 4) * 80;
@@ -126,9 +127,40 @@ class MainMenuState extends MusicBeatState
 			menuItem.antialiasing = ClientPrefs.globalAntialiasing;
 			//menuItem.setGraphicSize(Std.int(menuItem.width * 0.58));
 			menuItem.updateHitbox();
+
+			if(FlxG.save.data.antialiasing)
+				{
+				 menuItem.antialiasing = true;
+				}
+			   if (firstStart)
+				FlxTween.tween(menuItem,{y: 60 + (i * 160)},1 + (i * 0.25) ,{ease: FlxEase.expoInOut, onComplete: function(flxTween:FlxTween) 
+				 { 
+				  changeItem();
+				 }});
+			   else
+				menuItem.y = 60 + (i * 160);
+
+
+			switch (i) {
+				case 0:
+					menuItem.x = 0;
+					menuItem.y = 0;
+				case 1:
+					menuItem.x = 0;
+					menuItem.y = 0;
+				case 2:
+					menuItem.x = 0;
+					menuItem.y = 0;
+				case 3:
+					menuItem.x = 0;
+					menuItem.y = 0;
+				case 4:
+					menuItem.x = 0;
+					menuItem.y = 0;
+			}
 		}
 
-		FlxG.camera.follow(camFollowPos, null, 1);
+		//FlxG.camera.follow(camFollowPos, null, 1);
 
 		var versionShit:FlxText = new FlxText(12, FlxG.height - 44, 0, "Psych Engine v" + psychEngineVersion, 12);
 		versionShit.scrollFactor.set();

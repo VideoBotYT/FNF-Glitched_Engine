@@ -27,7 +27,7 @@ import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.math.FlxMath;
 import flixel.math.FlxPoint;
 import flixel.math.FlxRect;
-import flixel.system.FlxSound;
+import flixel.sound.FlxSound;
 import flixel.text.FlxText;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
@@ -3178,11 +3178,11 @@ class PlayState extends MusicBeatState
 		modManager.update(elapsed);
 
 		// TODO: re-do unspawnNotes to be per-column so you can have them spawn at different timings n all that shit w/ modifiers
-		/*if (unspawnNotes[0] != null)
+		if (unspawnNotes[0] != null)
 		{
 			var time:Float = spawnTime;
-			if(songSpeed < 1) time /= songSpeed;
-			if(unspawnNotes[0].multSpeed < 1) time /= unspawnNotes[0].multSpeed;
+			/*if(songSpeed < 1)*/time /= songSpeed;
+			/*if(unspawnNotes[0].multSpeed < 1)*/time /= unspawnNotes[0].multSpeed;
 
 			while (unspawnNotes.length > 0 && unspawnNotes[0].strumTime - Conductor.songPosition < time)
 			{
@@ -3194,31 +3194,7 @@ class PlayState extends MusicBeatState
 				var index:Int = unspawnNotes.indexOf(dunceNote);
 				unspawnNotes.splice(index, 1);
 			}
-		}*/
-		for(column in notesToSpawn){
-			if(column[0]!=null){
-				var time:Float = (modManager.getValue("noteSpawnTime", 0) + modManager.getValue("noteSpawnTime", 1)) / 2;
-				if (songSpeed < 1)
-					time /= songSpeed;
-				while (column.length > 0 && column[0].strumTime - Conductor.songPosition < time / ((column[0].multSpeed<1) ? column[0].multSpeed : 1))
-				{
-					var dunceNote:Note = column[0];
-					notes.insert(0, dunceNote);
-					dunceNote.spawned = true;
-					callOnLuas('onSpawnNote', [
-						notes.members.indexOf(dunceNote),
-						dunceNote.noteData,
-						dunceNote.noteType,
-						dunceNote.isSustainNote
-					]);
-
-					unspawnNotes.splice(unspawnNotes.indexOf(dunceNote), 1);
-					unspawnNotes.splice(column.indexOf(dunceNote), 1);
-
-				}
-			}
 		}
-
 		opponentStrums.forEachAlive(function(strum:StrumNote)
 		{
 			var pos = modManager.getPos(0, 0, 0, curDecBeat, strum.noteData, 1, strum, [], strum.vec3Cache);

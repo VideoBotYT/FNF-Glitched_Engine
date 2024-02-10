@@ -92,6 +92,7 @@ class StoryMenuState extends MusicBeatState
 		// Updating Discord Rich Presence
 		DiscordClient.changePresence("In the Menus", null);
 		#end
+		FlxG.sound.playMusic(Paths.music('playMenu'));
 
 		var num:Int = 0;
 		for (i in 0...WeekData.weeksList.length)
