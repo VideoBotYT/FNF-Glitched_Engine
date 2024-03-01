@@ -1,0 +1,11 @@
+function middleOn(step, duration)
+    queueEase(step, step + duration, "opponentSwap", 0.5, "smootherStepInOut")
+    queueEase(step, step + duration, "confusion", 360, "quadOut")
+    queueEase(step, step + duration, "alpha", 0.5, "smootherStepInOut", 1)
+end
+
+function middleOff(step, duration)
+    queueEase(step, step + duration, "opponentSwap", 0, "smootherStepInOut")
+    queueEase(step, step + duration, "confusion", -360, "quadOut")
+    queueEase(step, step + duration, "alpha", 0, "smootherStepInOut", 1)
+end
