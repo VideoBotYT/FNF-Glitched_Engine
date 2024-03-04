@@ -3228,10 +3228,12 @@ class PlayState extends MusicBeatState
 
 			var fakeCrochet:Float = (60 / SONG.bpm) * 1000;
 			notes.sort(sortByOrderNote);
-			notes.forEachAlive(function(daNote:Note)
-			{
+			if (!inCutscene) {
+				notes.forEachAlive(function(daNote:Note)
+				{
 				var strumGroup:FlxTypedGroup<StrumNote> = playerStrums;
 				if(!daNote.mustPress) strumGroup = opponentStrums;
+				if (strumGroup == null) return;
 
 				var strumX:Float = strumGroup.members[daNote.noteData].x;
 				var strumY:Float = strumGroup.members[daNote.noteData].y;
@@ -3313,7 +3315,8 @@ class PlayState extends MusicBeatState
 						daNote.destroy();
 					}
 				}
-			});
+				});
+			}
 		}
 		checkEventNote();
 
