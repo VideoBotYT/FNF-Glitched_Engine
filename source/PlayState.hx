@@ -1076,6 +1076,8 @@ class PlayState extends MusicBeatState
 			timeTxt.y += 3;
 		}
 
+		lime.app.Application.current.window.title = 'Glitched Engine - ' + SONG.song + ' (' + storyDifficultyText.toUpperCase() + ')';
+
 		var splash:NoteSplash = new NoteSplash(100, 100, 0);
 		grpNoteSplashes.add(splash);
 		splash.alpha = 0.0;
