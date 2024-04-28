@@ -91,6 +91,8 @@ class StoryMenuState extends MusicBeatState
 		#if desktop
 		// Updating Discord Rich Presence
 		DiscordClient.changePresence("In the Menus", null);
+				//lime.updateApplicationTitle
+				lime.app.Application.current.window.title = 'Friday Night Funkin: Glitched Engine - Menu';
 		#end
 		FlxG.sound.playMusic(Paths.music('playMenu'));
 

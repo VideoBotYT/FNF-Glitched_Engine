@@ -59,6 +59,8 @@ class MainMenuState extends MusicBeatState
 		#if desktop
 		// Updating Discord Rich Presence
 		DiscordClient.changePresence("In the Menus", null);
+		//lime.updateApplicationTitle
+		lime.app.Application.current.window.title = 'Friday Night Funkin: Glitched Engine - Menu';
 		#end
 		debugKeys = ClientPrefs.copyKey(ClientPrefs.keyBinds.get('debug_1'));
 
