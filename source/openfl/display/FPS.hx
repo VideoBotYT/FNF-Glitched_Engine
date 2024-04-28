@@ -90,7 +90,7 @@ class FPS extends TextField
 			text += "\nMemory: " + memoryMegas + " MB";
 			#end
 
-			text += "\nloaded Glitched Engine v" + MainMenuState.glitchedversion;
+			text += "\nloaded Glitched Engine v" + MainMenuState.glitchedengineVersion;
 
 			textColor = 0xFFFFFFFF;
 			if (memoryMegas > 3000 || currentFPS <= ClientPrefs.framerate / 2)

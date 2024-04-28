@@ -26,11 +26,7 @@ using StringTools;
 class MainMenuState extends MusicBeatState
 {
 	public static var psychEngineVersion:String = '0.6.2'; //This is also used for Discord RPC
-<<<<<<< Updated upstream
-		public static var glitchedversion:String = '0.0.3dev';
-=======
 	public static var glitchedengineVersion:String = '0.0.3';
->>>>>>> Stashed changes
 	public static var curSelected:Int = 0;
 	public static var firstStart:Bool = true;
 
@@ -178,7 +174,7 @@ class MainMenuState extends MusicBeatState
 		versionShit.scrollFactor.set();
 		versionShit.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		add(versionShit);
-		var versionShit:FlxText = new FlxText(12, FlxG.height - 64, 0, "Glitched Engine v" + glitchedversion, 12);
+		var versionShit:FlxText = new FlxText(12, FlxG.height - 64, 0, "Glitched Engine v" + glitchedengineVersion, 12);
 		versionShit.scrollFactor.set();
 		versionShit.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		add(versionShit);
