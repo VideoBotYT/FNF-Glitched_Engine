@@ -1213,12 +1213,6 @@ class PlayState extends MusicBeatState
 		scoreTxt.visible = !ClientPrefs.hideHud;
 		add(scoreTxt);
 
-		var watermark:FlxText = new FlxText(4, healthBar.y + 50, 0, SONG.song + ' (${storyDifficultyText})' + ' - ${lime.app.Application.current.meta.get('company')}');
-		watermark.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, LEFT, OUTLINE, FlxColor.BLACK);
-		watermark.scrollFactor.set();
-		watermark.visible = ClientPrefs.data.enableWatermark;
-		uiGroup.add(watermark);
-
 		versionTxt = new FlxText(0, FlxG.height - 24, 0, SONG.song + " - " +
 			CoolUtil.difficultyString() + " | Glitched Engine " +
 			MainMenuState.glitchedengineVersion, 16);
