@@ -41,6 +41,8 @@ class FreeplayState extends MusicBeatState
 	var intendedScore:Int = 0;
 	var intendedRating:Float = 0;
 
+	var curCategory:FlxText;
+
 	private var grpSongs:FlxTypedGroup<Alphabet>;
 	private var curPlaying:Bool = false;
 
@@ -52,12 +54,13 @@ class FreeplayState extends MusicBeatState
 
 	override function create()
 	{
-		//Paths.clearStoredMemory();
-		//Paths.clearUnusedMemory();
-		
-		persistentUpdate = true;
-		PlayState.isStoryMode = false;
-		WeekData.reloadWeekFiles(false);
+		switch (FreeplaySelectState.freeplayCats[FreeplaySelectState.curCategory].toLowerCase())
+			{
+				case 'Tutorial':
+					addWeek(["Tutorial"], 0, 0xffff3300, ['gf']);
+				case 'Week1':
+					addWeek(["Bopeepo", "Fresh", "Dad Battle"], 1, 0xff00c3ff, ['dad', 'dad', 'dad']);
+			};
 
 		#if desktop
 		// Updating Discord Rich Presence
@@ -218,7 +221,7 @@ class FreeplayState extends MusicBeatState
 		return (!leWeek.startUnlocked && leWeek.weekBefore.length > 0 && (!StoryMenuState.weekCompleted.exists(leWeek.weekBefore) || !StoryMenuState.weekCompleted.get(leWeek.weekBefore)));
 	}
 
-	/*public function addWeek(songs:Array<String>, weekNum:Int, weekColor:Int, ?songCharacters:Array<String>)
+	public function addWeek(songs:Array<String>, weekNum:Int, weekColor:Int, ?songCharacters:Array<String>)
 	{
 		if (songCharacters == null)
 			songCharacters = ['bf'];
@@ -226,13 +229,11 @@ class FreeplayState extends MusicBeatState
 		var num:Int = 0;
 		for (song in songs)
 		{
-			addSong(song, weekNum, songCharacters[num]);
-			this.songs[this.songs.length-1].color = weekColor;
-
+			addSong(song, weekNum, songCharacters[num], weekColor);
 			if (songCharacters.length != 1)
 				num++;
 		}
-	}*/
+	}
 
 	var instPlaying:Int = -1;
 	public static var vocals:FlxSound = null;

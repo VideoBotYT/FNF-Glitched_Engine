@@ -1,7 +1,0 @@
-{
-	"name": "Engine Assets",
-	"description": "These are some assets that didn't work in the assets folder so they are here \ndon't turn off this modpack and don't delete it this is needed otherwise you are not using the whole engine",
-	"restart":true,
-	"runsGlobally": true,
-	"color": [20, 255, 255]
-}
