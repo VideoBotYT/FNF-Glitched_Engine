@@ -57,9 +57,9 @@ class FreeplayState extends MusicBeatState
 		switch (FreeplaySelectState.freeplayCats[FreeplaySelectState.curCategory].toLowerCase())
 			{
 				case 'Tutorial':
-					addWeek(["Tutorial"], 0, 0xffff3300, ['gf']);
+					addWeek(['Tutorial'], 0, 0xffff3300, ['gf']);
 				case 'Week1':
-					addWeek(["Bopeepo", "Fresh", "Dad Battle"], 1, 0xff00c3ff, ['dad', 'dad', 'dad']);
+					addWeek(['Bopeepo", "Fresh", "Dad Battle'], 1, 0xff00c3ff, ['dad', 'dad', 'dad']);
 			};
 
 		#if desktop
